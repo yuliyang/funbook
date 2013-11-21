@@ -2,13 +2,29 @@
 <html>
 <head>
   <title>Funbook</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
   <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
+  <% javascript_include_tag "vendor/custom.modernizr" %>
   <%= csrf_meta_tags %>
 </head>
 <body>
 
-<%= yield %>
+<header class="row">
+  <nav class="large-12 small-12 columns">
+    <ul class="inline-list">
+      <li><%= link_to 'Funbook' %></li>
+      <li><%= link_to 'Status List', statuses_path %></li>
+      <li><%= link_to 'New Status', new_status_path %></li>
+    </ul>
+  </nav>
+</header>
+
+<section class="row">
+  <div class="large-12 small-12 columns">
+    <%= yield %>
+  </div>
+</section>
 
 </body>
 </html>
