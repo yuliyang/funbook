@@ -1,14 +1,15 @@
-<h1>All of the Statuses</h1>
-
+<h3>All of the Statuses</h3>
 
 <% @statuses.each do |status| %>
-  <strong><%= status.name %></strong>
-  <p><%= status.content %></p>
-  <div class="status">
-    <%= link_to time_ago_in_words(status.created_at) + ' ago' , status %>
-    <div class="admin">
-      | <%= link_to 'Edit', edit_status_path(status) %> |
-      <%= link_to 'Destroy', status, method: :delete, data: { confirm: 'Are you sure?' } %>
+  <section id="status" class="panel">
+    <strong><%= status.user.first_name %></strong>
+    <p><%= status.content %></p>
+    <div class="time">
+      <%= link_to time_ago_in_words(status.created_at) + ' ago' , status %>
+      <div class="admin">
+        | <%= link_to 'Edit', edit_status_path(status) %> |
+        <%= link_to 'Destroy', status, method: :delete, data: { confirm: 'Are you sure?' } %>
+      </div>
     </div>
-  </div>
+  </section>
 <% end %>

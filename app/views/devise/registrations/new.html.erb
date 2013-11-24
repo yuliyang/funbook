@@ -1,0 +1,56 @@
+<h2>Sign up</h2>
+
+<section class="panel">
+  <%= form_for(resource, :as => resource_name, :url => registration_path(resource_name)) do |f| %>
+    <%= devise_error_messages! %>
+
+    <div class="row">
+      <div class="large-12 small-12 columns">
+        <%= f.label :first_name %>
+        <%= f.text_field :first_name %>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="large-12 small-12 columns">
+        <%= f.label :last_name %>
+        <%= f.text_field :last_name %>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="large-12 small-12 columns">
+        <%= f.label :profile_name %>
+        <%= f.text_field :profile_name %>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="large-12 small-12 columns">
+        <%= f.label :email %>
+        <%= f.email_field :email, :autofocus => true %>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="large-12 small-12 columns">
+        <%= f.label :password %>
+        <%= f.password_field :password %>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="large-12 small-12 columns">
+        <%= f.label :password_confirmation %>
+        <%= f.password_field :password_confirmation %>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="large-12 small-12 columns">
+        <%= f.submit "Sign up" %>
+      </div>
+    </div>
+  <% end %>
+</section>
+<%= render "devise/shared/links" %>

@@ -11,20 +11,60 @@
 <body>
 
 <header class="row">
-  <nav class="large-12 small-12 columns">
-    <ul class="inline-list">
-      <li><%= link_to 'Funbook' %></li>
-      <li><%= link_to 'Status List', statuses_path %></li>
-      <li><%= link_to 'New Status', new_status_path %></li>
+  <nav class="top-bar large-12 small-12 columns">
+    <ul class="title-area">
+      <!-- Title Area -->
+      <li class="name">
+        <h1><%= link_to 'FunBook', statuses_path %></a></h1>
+      </li>
+      <!-- Remove the class "menu-icon" to get rid of menu icon. Take out "Menu" to just have icon alone -->
+      <li class="toggle-topbar menu-icon"><a href="#"><span>Menu</span></a></li>
     </ul>
+    <section class="top-bar-section">
+      <ul class="right">
+        <li class="divider"></li>
+        <li><%= link_to 'Status List', statuses_path %></li>
+        <li class="divider"></li>
+        <% if user_signed_in? %>
+          <li><%= link_to 'New Status', new_status_path %></li>
+          <li class="divider"></li>
+          <li class="has-dropdown"><a href="#">Account</a>
+            <ul class="dropdown">
+              <li><%= link_to 'Account', edit_user_registration_path %></a>
+              <li><%= link_to 'Log Out', destroy_user_session_path, method: :delete %></a>
+            </ul>
+          </li>
+        <% else %>
+          <li><%= link_to 'Log In', new_user_session_path %></li>
+          <li class="divider"></li>
+          <li><%= link_to 'Sign Up', new_user_registration_path %></li>
+        <% end %>
+      </ul>
+    </section>
   </nav>
 </header>
 
 <section class="row">
   <div class="large-12 small-12 columns">
+    <% if user_signed_in? %>
+      <div class="alert-box info radius">
+        Hi, <%= current_user.full_name %>!
+      </div>
+    <% end %>
+    <% if notice %>
+      <div class="alert-box success radius">
+        <%= notice %>
+        <a href="#" class="close">&times;</a>
+      </div>
+    <% end %>
+    <% if alert %>
+      <div class="alert-box warning radius">
+        <%= alert %>
+        <a href="#" class="close">&times;</a>
+      </div>
+    <% end %>
     <%= yield %>
   </div>
 </section>
-
 </body>
 </html>

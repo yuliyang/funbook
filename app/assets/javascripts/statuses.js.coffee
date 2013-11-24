@@ -3,6 +3,6 @@
 # You can use CoffeeScript in this file: http://coffeescript.org/
 
 $ ->
-  $('.status').hover (event) ->
+  $('#status .time').hover (event) ->
     console.log('hover triggered')
     $(this).toggleClass('hover')

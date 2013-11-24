@@ -6,6 +6,8 @@ gem 'rails', '4.0.0'
 # Use sqlite3 as the database for Active Record
 gem 'sqlite3'
 
+gem 'devise'
+
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.0'
 
@@ -44,5 +46,5 @@ end
 # Use debugger
 # gem 'debugger', group: [:development, :test]
 
-gem 'compass-rails' # you need this or you get an err
+gem 'compass-rails', "~> 2.0.alpha.0" # you need this or you get an err
 gem 'zurb-foundation', '~> 4.0.0'
